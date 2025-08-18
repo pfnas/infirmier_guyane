@@ -1,0 +1,256 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh; /* Assure que le body prend toute la hauteur de l'écran */
+    display: flex;
+    flex-direction: column; /* Permet au footer d'être en bas */
+}
+
+/* En-tête */
+header {
+    background-color: #03c03c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #ffffff;
+    font-size: 2.5em;
+}
+
+header h2 {
+    color: #ffffff;
+    font-size: 1.5em;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline; /* Affichage des éléments en ligne */
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #00796b;
+}
+/* Sections principales */
+section {
+    margin-bottom: 40px; /* Espace sous chaque section */
+    padding: 20px; /* Ajoute de l'espace à l'intérieur de chaque section */
+    background-color: #ffffff; /* Si tu veux un fond blanc pour mieux délimiter les sections */
+    border-radius: 8px; /* Ajoute des bords arrondis si tu veux un style plus doux */
+}
+
+/* Pour une meilleure visibilité entre le header et la section principale */
+main {
+    margin-top: 20px;
+}
+
+/* Section photo-gallery (si tu veux aussi espacer les éléments de la galerie d'images) */
+.photo-gallery {
+    margin-top: 20px;
+    margin-bottom: 40px; /* Espace supplémentaire sous la galerie */
+}
+
+/* Optionnel : pour les articles dans la section "Blog" */
+article {
+    margin-bottom: 40px; /* Espace sous chaque article */
+}
+
+
+/* Mise en forme des sections */
+main {
+    padding: 20px;
+    flex: 1; /* Cela permet à main de prendre toute la hauteur disponible */
+}
+.photo{
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #00796b;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h1 {
+    color: #444;
+}
+
+/* Section photo-gallery */
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrer les images horizontalement */
+    gap: 20px;  /* Espace entre les images */
+    margin-top: 20px;
+}
+
+.photo-item {
+    flex-basis: 32%;  /* Chaque image prendra environ 1/3 de la largeur de la page */
+    margin-bottom: 20px;  /* Espace en dessous des images */
+    display: flex;
+    justify-content: center;  /* Centre les images dans leur container */
+}
+
+
+.photo-item img {
+    width: 100%;  /* L'image prendra 100% de la largeur de son conteneur */
+    height: auto; /* La hauteur sera calculée en fonction du ratio de l'image */
+    border-radius: 8px;
+    object-fit: cover;  /* Ajuste l'image tout en maintenant son ratio */
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo-item img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Articles */
+article {
+    margin-bottom: 20px;
+}
+
+article h3 a {
+    text-decoration: none;
+    color: #00796b;
+    transition: color 0.3s ease;
+}
+
+article h3 a:hover {
+    color: #004d40;
+    text-decoration: underline;
+}
+
+.thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Pied de page */
+footer {
+    background-color: #03c03c;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Changer fixed en relative */
+    width: 100%;
+    margin-top: 20px; /* Ajoute un peu d'espace pour ne pas coller au contenu */
+}
+
+/* --- Responsive Design --- */
+
+/* Pour les tablettes et écrans de taille moyenne */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header h2 {
+        font-size: 1.2em;
+    }
+
+    /* Pour la galerie : les images occuperont 48% de la largeur sur les écrans moyens */
+    .photo-item {
+        flex-basis: 48%;  
+    }
+
+    /* Section des articles */
+    article h3 {
+        font-size: 1.1em;
+    }
+
+    footer {
+        padding: 15px;
+    }
+}
+
+/* Pour les petits écrans (téléphones) */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header h2 {
+        font-size: 1.1em;
+    }
+
+    /* Pour la galerie : les images occuperont 100% de la largeur (une image par ligne) */
+    .photo-item {
+        flex-basis: 100%; /* Une image par ligne */
+    }
+
+    /* Ajustement des titres des articles */
+    article h3 {
+        font-size: 1em;
+    }
+
+    footer {
+        padding: 20px 10px;
+    }
+}
+
+/* --- Nouvelle règle pour éviter la déformation des images --- */
+
+/* Section photo-gallery : Ajuste les images pour ne pas les déformer */
+.photo-item img {
+    object-fit: cover;  /* Garder le ratio de l'image en la couvrant */
+}
+
+/* Pour garantir qu'aucune déformation n'ait lieu */
+@media screen and (max-width: 768px) {
+    .photo-item img {
+        object-fit: contain; /* Utilise contain pour garder l'image dans le conteneur sans la couper */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .photo-item img {
+        object-fit: contain; /* Utilise contain pour garder l'image dans le conteneur sans la couper */
+    }
+}
+
+/* Style du logo dans l'en-tête */
+header {
+    display: flex; /* Utilise flexbox pour aligner les éléments horizontalement */
+    align-items: center; /* Centre verticalement les éléments */
+    justify-content: space-between; /* Espace égal entre le logo et les autres éléments */
+}
+
+header .logo {
+    margin-right: 20px; /* Espace entre le logo et le texte/menu */
+}
+
+header .logo img {
+    height: 50px; /* Ajuste la hauteur du logo, tu peux modifier cette valeur */
+    width: auto; /* Garde les proportions de l'image */
+}
